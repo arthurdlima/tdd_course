@@ -1,7 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:tdd_app_1/src/authentication/domain/repositories/authentication_repository.dart';
 
-
-
-class MockAuthRepo extens Mock implements AuthenticationRepository {
-
-}
+class MockAuthRepo extends Mock implements AuthenticationRepository {}
