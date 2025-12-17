@@ -24,6 +24,7 @@ void main() {
 
   test('should call the [AuthRepo.createUser]', () async {
     //arrange
+
     //STUB
     when(
       () => repository.createUser(
@@ -32,6 +33,7 @@ void main() {
         createdAt: any(named: 'createdAt'),
       ),
     ).thenAnswer((_) async => const Right(null));
+
     //act
     final result = await usecase(params);
 
@@ -45,6 +47,7 @@ void main() {
         createdAt: params.createdAt,
       ),
     ).called(1);
+
     verifyNoMoreInteractions(repository);
   });
 }
