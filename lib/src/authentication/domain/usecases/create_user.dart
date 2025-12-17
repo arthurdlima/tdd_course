@@ -1,7 +1,8 @@
-import 'package:equatable/equatable.dart';
 import 'package:tdd_app_1/core/usecase/usecase.dart';
-import 'package:tdd_app_1/core/utils/typedef.dart';
+import 'package:equatable/equatable.dart';
 import 'package:tdd_app_1/src/authentication/domain/repositories/authentication_repository.dart';
+
+import '../../../../core/utils/typedef.dart';
 
 class CreateUser extends UsecaseWithParams<void, CreateUserParams> {
   const CreateUser(this._repository);
@@ -10,23 +11,31 @@ class CreateUser extends UsecaseWithParams<void, CreateUserParams> {
 
   @override
   ResultVoid call(CreateUserParams params) async => _repository.createUser(
-    createdAt: params.createdAt,
     name: params.name,
     avatar: params.avatar,
+    createdAt: params.createdAt,
   );
 }
 
 class CreateUserParams extends Equatable {
-  const CreateUserParams({
-    required this.createdAt,
-    required this.name,
-    required this.avatar,
-  });
-
-  final String createdAt;
   final String name;
   final String avatar;
+  final String createdAt;
+
+  const CreateUserParams({
+    required this.name,
+    required this.avatar,
+    required this.createdAt,
+  });
+
+  const CreateUserParams.empty()
+    : this(
+        createdAt: '_empty.createdAt',
+        name: '_empty.name',
+        avatar: '_empty.avatar',
+      );
 
   @override
-  List<Object?> get props => [createdAt, name, avatar];
+  // TODO: implement props
+  List<Object?> get props => [name, avatar, createdAt];
 }
