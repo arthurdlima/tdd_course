@@ -9,13 +9,13 @@ import 'package:tdd_app_1/core/errors/failure.dart';
 import 'package:tdd_app_1/src/authentication/domain/repositories/authentication_repository.dart';
 import 'package:tdd_app_1/src/authentication/domain/usecases/create_user.dart';
 
-class MockAuthRepo extends Mock implements AuthenticationRepository {}
+import 'authentiation_repository.mock.dart';
 
 void main() {
   late CreateUser usecase;
   late AuthenticationRepository repository;
 
-  setUpAll(() {
+  setUp(() {
     repository = MockAuthRepo();
     usecase = CreateUser(repository);
   });

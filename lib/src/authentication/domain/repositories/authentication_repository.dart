@@ -12,5 +12,5 @@ abstract class AuthenticationRepository {
     required String createdAt,
   });
 
-  ResultFuture<List<User>> getUser();
+  ResultFuture<List<User>> getUsers();
 }
